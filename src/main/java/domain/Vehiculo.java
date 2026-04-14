@@ -2,21 +2,21 @@ package domain;
 
 public abstract class Vehiculo {
     protected String patente;
-    protected String marca;
     protected String modelo;
     protected int anio;
     protected double capacidadCarga;
     protected Sucursal sucursal;
     private VehiculoTipo tipo;
+    private Marca marca;
 
-    public Vehiculo(VehiculoTipo tipo, String patente, String marca, String modelo, int anio, double capacidadCarga, Sucursal sucursal) {
+    public Vehiculo(VehiculoTipo tipo, String patente, Marca marca, String modelo, int anio, double capacidadCarga, Sucursal sucursal) {
         this.patente = patente;
-        this.marca = marca;
         this.modelo = modelo;
         this.anio = anio;
         this.capacidadCarga = capacidadCarga;
         this.sucursal = sucursal;
         this.tipo = tipo;
+        this.marca = marca;
     }
 
     public String getPatente() {
@@ -46,8 +46,13 @@ public abstract class Vehiculo {
     public boolean esDe(VehiculoTipo tipo){
         return this.tipo == tipo;
     }
+
+    public Marca getMarca() {
+        return marca;
+    }
+    
     @Override
     public String toString() {
-        return patente + " - " + marca + " " + modelo + " - Sucursal: " + sucursal.getCodigo();
+        return marca + " " + modelo + " - Sucursal: " + sucursal.getCodigo();
     }
 }
