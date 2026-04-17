@@ -8,8 +8,7 @@ public class VehiculoElectrico extends Vehiculo {
         super(VehiculoTipo.ELECTRICO, patente, marca, modelo, anio, capacidadCarga, sucursal);
         this.kwhBase = kwhBase;
     }
-
-    //agregado el override y modificado la logica
+    
     @Override
     public double calcularConsumo(double kilometros) {
         double total = (kilometros/100) * kwhBase;
