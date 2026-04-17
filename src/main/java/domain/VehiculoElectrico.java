@@ -14,7 +14,7 @@ public class VehiculoElectrico extends Vehiculo {
         double total = (kilometros/100) * kwhBase;
 
         if (capacidadCarga > 1200) {
-            total = total * 1.15;
+            total = total + (kwhBase * 0.15);
         }
 
         return total;
