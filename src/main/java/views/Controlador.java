@@ -21,12 +21,12 @@ public class Controlador {
         return vehiculos;
     }
     
-    public static void agregarVehiculosElec(String patente, String marca, String modelo, int anio, double capacidadCarga, String sucursal, double kwhBase){
-        Persistencia.agregarVehiculo(new VehiculoElectrico(patente,getMarca(marca),modelo,anio,capacidadCarga,getSucursal(sucursal),kwhBase));
+    public static void agregarVehiculosElec(String patente, Marca marca, String modelo, int anio, double capacidadCarga, Sucursal sucursal, double kwhBase){
+        Persistencia.agregarVehiculo(new VehiculoElectrico(patente,marca,modelo,anio,capacidadCarga,sucursal,kwhBase));
     }
     
-    public static void agregarVehiculosComb(String patente, String marca, String modelo, int anio, double capacidadCarga, String sucursal, double kilometrosPorLitro, double litrosExtra){
-        Persistencia.agregarVehiculo(new VehiculoCombustible(patente,getMarca(marca),modelo,anio,capacidadCarga,getSucursal(sucursal),kilometrosPorLitro,litrosExtra));
+    public static void agregarVehiculosComb(String patente, Marca marca, String modelo, int anio, double capacidadCarga, Sucursal sucursal, double kilometrosPorLitro, double litrosExtra){
+        Persistencia.agregarVehiculo(new VehiculoCombustible(patente,marca,modelo,anio,capacidadCarga,sucursal,kilometrosPorLitro,litrosExtra));
     }
     
     public static ArrayList<Sucursal> getSucursalesDisponibles(){

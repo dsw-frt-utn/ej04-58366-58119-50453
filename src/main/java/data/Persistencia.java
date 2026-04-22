@@ -3,6 +3,7 @@ package data;
 import domain.*;
 import java.util.ArrayList;
 import java.util.Optional;
+import javax.swing.JOptionPane;
 
 public class Persistencia {
     private static ArrayList<Vehiculo> vehiculos = new ArrayList<>();
@@ -48,7 +49,17 @@ public class Persistencia {
     }
     
     public static void agregarVehiculo(Vehiculo vehiculo){
-        vehiculos.add(vehiculo);
+        if (!existeVehiculo(vehiculo.getPatente())) {
+            vehiculos.add(vehiculo);
+            JOptionPane.showMessageDialog(null, "Vehículo Agregado con exito");
+        }
+        else if (existeVehiculo(vehiculo.getPatente())){
+            JOptionPane.showMessageDialog(null, "Error: El Vehiculo ya existe.","Objeto Repetido", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public static boolean existeVehiculo(String patente) {
+        return vehiculos.stream().anyMatch(v -> v.getPatente().equalsIgnoreCase(patente));
     }
     
     public static ArrayList<Vehiculo> getVehiculos(){
