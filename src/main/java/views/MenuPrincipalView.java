@@ -18,6 +18,7 @@ public class MenuPrincipalView extends javax.swing.JFrame {
      */
     public MenuPrincipalView() {
         initComponents();
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     /**
